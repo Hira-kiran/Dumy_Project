@@ -2,7 +2,7 @@
 import 'dart:async';
 import 'package:dumy_project/constants/images.dart';
 import 'package:flutter/material.dart';
-import 'home_screen.dart';
+import '../constants/routes/routes_name.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -16,10 +16,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     Timer(
       const Duration(seconds: 3),
-      () => Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (context) => const HomeScreen()),
-          ((route) => false)),
+      () => Navigator.pushNamedAndRemoveUntil(
+          context, RoutesName.home, ((route) => false)),
     );
 
     super.initState();
@@ -39,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
           ),
           const Text(
-            "E-Book",
+            "Dumy Project",
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           )
         ],
